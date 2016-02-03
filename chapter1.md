@@ -44,99 +44,46 @@ test_mc(correct = 1, feedback_msgs = c(msg_success, msg_bad, msg_bad, msg_bad, m
 ```
 
 --- type:NormalExercise lang:r xp:100 skills:1
-## More movies
+## my second exercise
 
-In the previous exercise you saw a dataset with some movies, in this exercise we'll have a look at some other dataset about movies!
+this is the instruction of the exercise...
+
 
 *** =instructions
-- Check the structure of `movie_selection`.
-- Select movies with a rating of 5 or higher. Assign the result to `good_movies`.
-- Plot `good_movies$Run` on the x axis, `good_movies$Rating` on the y-axis and set `col` to `good_movies$Genre`.
+- Create a function that calculates the square root of x, and store it in an object called `sqrt2`
+- Test the function on the vector `z` 
 
 *** =hint
-- Use `str()` for the first instruction.
-- For the second instruction, you should use `...[movie_selection$Rating >= 5, ]`.
-- For the plot, use `plot(x = ..., y = ..., col = ...)`. 
+- the basic structure of a function is `object_name <- function(x){your code}`
+- to test your function the code is as follows: `object_function_name(the object or value to be inputed)`
 
 *** =pre_exercise_code
 ```{r}
-# If you load a library in the pre exercise code of a normal exercise, it will be available in the sample code, solution code and
-# in the user's console.
+# creating vector z
 
-library(MindOnStats)
-
-# It's perfectly possible to transform a loaded R dataset in the pre exercise code. You can use this selection in the rest of the
-# exercise.
-
-data(Movies)
-
-movie_selection <- Movies[Movies$Genre %in% c("action", "animated", "comedy"),c("Genre", "Rating", "Run")]
-
-# If you don't want variables you used in the pre exercise code to be available in the rest of the exercise, you can clean the up
-# at the end of the pre exercise code.
-
-rm(Movies)
+z <- c(1,3,9)
 
 ```
 
 *** =sample_code
 ```{r}
-# A selection of movies, movie_selection, is available in your workspace
-
-# Check out the structure of movie_selection
+# create your function, remember to store it in an object called sqrt2
 
 
-# Select movies that have a rating of 5 or higher: good_movies
-
-
-# Plot the movie run time (Run) on the x axis, Rating on the y axis and set the color using Genre
+# run your function on the vector z, which is pre-loaded
 
 ```
 
 *** =solution
 ```{r}
-# A selection of movies, movie_selection, is available in your workspace
+# create your function, remember to store it in an object called sqrt2
+sqrt2 <- function(x){x^.5}
 
-# Check out the structure of movie_selection
-str(movie_selection)
-
-# Select movies that have a rating of 5 or higher: good_movies
-good_movies <- movie_selection[movie_selection$Rating >= 5, ]
-
-# Plot the movie run time (Run) on the x axis, Rating on the y axis and set the color using Genre
-plot(good_movies$Run, good_movies$Rating, col = good_movies$Genre)
+# run your function on the vector z, which is pre-loaded
+sqrt2(z)
 ```
 
 *** =sct
 ```{r}
-# This is the submission correctness test. Documentation is available at http://docs.datacamp.com/teach/sct-design-r.html
-
-# Test whether the function str is called with the correct argument, object
-# If it is not called, print something informative
-# If it is called, but called incorrectly, print something else
-test_function("str", args = "object",
-						  not_called_msg = "You didn't call `str()`!",
-						  incorrect_msg = "You didn't call `str(object = ...)` with the correct argument, `object`.")
-
-# Test the object, good_movies
-# Notice that we didn't define any feedback here, this will cause automatically generated
-# feedback to be prompted to the student in case of an incorrect submission.
-test_object("good_movies")
-
-# Test whether the student correctly used plot()
-# Again, we use the automatically generated feedback here
-test_function("plot", args = "x")
-test_function("plot", args = "y")
-test_function("plot", args = "col")
-
-# Alternativeley, you can use test_function() like this
-# test_function("plot", args = c("x", "y", "col"))
-# but this will generate other, less precise, feedback
-
-# It's always smart to include the following line of code at the end of your SCT's
-# It will check whether executing the student's code resulted in an error, and 
-# will cause the exercise to fail if it did.
-test_error()
-
 success_msg("Good work!")
 ```
