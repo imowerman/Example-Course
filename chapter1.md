@@ -14,35 +14,20 @@ attachments :
 --- type:MultipleChoiceExercise lang:r xp:50 skills:1
 ## Bad movie
 
-Have a look at the plot that showed up in the viewer to the right. 
-
-Which type of movie has the worst rating assigned to it?
+function code goes between:
 
 *** =instructions
-- Action
-- Adventure
-- Animation
-- Comedy
+- parenthesis
+- curly brackets
+- quotes
+- nothing
 
 *** =hint
-Have a look at the plot, which color does the point with the lowest y-value have?
+too easy
 
 *** =pre_exercise_code
 ```{r}
-# The pre exercise code is the perfect moment to preload a dataset. The code below will read the csv
-# that is stored at the URL's location and the movies variable will be available in the user's console.
 
-movies <- read.csv("http://s3.amazonaws.com/assets.datacamp.com/course/introduction_to_r/movies.csv")
-
-# Next to reading preloading datasets, we can also preload packages in the pre exercise code. The code
-# below will load the ggplot2 library. This makes it available for the user in his/her console.
-
-library(ggplot2)
-
-# In multiple choice exercises, you can ask the user a question about a plot. To make the plot show up
-# in the viewer when the user start's the exercise, you can use the plot command in the pre exercise code.
-
-ggplot(movies, aes(x = runtime, y = rating, col = genre)) + geom_point()
 
 ```
 
